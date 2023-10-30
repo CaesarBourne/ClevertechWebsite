@@ -9,10 +9,27 @@ export const componentsSlice = createSlice({
   name: "components",
   initialState,
   reducers: {
-    addComponent: (state, action) => {},
-    updateComponent: (state, action) => {},
-    removeComponent: (state, action) => {},
-    setEditedComponent: (state, action) => {},
+    addComponent: (state, action) => {
+      state.items.push(action.payload);
+      state.currentlyEdited = action.payload;
+    },
+    updateComponent: (state, action) => {
+      const componentToUpdate = state.items.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (componentToUpdate) {
+        Object.assign(componentToUpdate, action.payload);
+        state.currentlyEdited = null;
+      }
+    },
+    removeComponent: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload.id);
+      state.currentlyEdited = null;
+    },
+    setEditedComponent: (state, action) => {
+      state.currentlyEdited = action.payload;
+    },
   },
 });
 
