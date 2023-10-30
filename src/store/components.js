@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   currentlyEdited: null,
@@ -6,19 +6,26 @@ export const initialState = {
 };
 
 export const componentsSlice = createSlice({
-  name: 'components',
+  name: "components",
   initialState,
   reducers: {
-    addComponent: (state, action) => {
-    },
-    updateComponent: (state, action) => {
-    },
-    removeComponent: (state, action) => {
-    },
-    setEditedComponent: (state, action) => {
-    },
+    addComponent: (state, action) => {},
+    updateComponent: (state, action) => {},
+    removeComponent: (state, action) => {},
+    setEditedComponent: (state, action) => {},
   },
-})
+});
 
-export const componentsActions = componentsSlice.actions
-export const componentsReducer = componentsSlice.reducer
+// export const componentsActions = componentsSlice.actions;
+// export const componentsReducer = componentsSlice.reducer;
+
+const { addComponent, updateComponent, removeComponent, setEditedComponent } =
+  componentsSlice.actions;
+
+export const componentsActions = {
+  addComponent,
+  updateComponent,
+  removeComponent,
+  setEditedComponent,
+};
+export const componentsReducer = componentsSlice.reducer;
