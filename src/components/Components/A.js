@@ -1,6 +1,6 @@
 import React from "react";
 
-const A = ({ values }) => {
+export const A = ({ values }) => {
   const { href, label } = values;
 
   const handleClick = (event) => {
@@ -19,5 +19,3 @@ const A = ({ values }) => {
     </a>
   );
 };
-
-export default A;
