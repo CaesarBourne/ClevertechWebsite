@@ -28,7 +28,8 @@ export const componentsSlice = createSlice({
       state.currentlyEdited = null;
     },
     setEditedComponent: (state, action) => {
-      state.currentlyEdited = action.payload;
+      if (state && state.currentlyEdited)
+        state.currentlyEdited = action.payload;
     },
   },
 });
