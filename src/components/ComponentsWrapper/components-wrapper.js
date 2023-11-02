@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import { AvailableComponents } from '../Components'
-import './components-wrapper.css'
+import { AvailableComponents } from "../Components";
+import "./components-wrapper.css";
 
 export const ComponentsWrapper = ({
   isEdited,
@@ -15,23 +15,22 @@ export const ComponentsWrapper = ({
     return null;
   }
 
-  const Component = AvailableComponents.find(comp => comp.layout === layout).component
+  const Component = AvailableComponents.find(
+    (comp) => comp.layout === layout
+  ).component;
 
-  const wrapperClass = classNames(
-    'components-wrapper',
-    { 'components-wrapper--active': isEdited },
-  );
+  const wrapperClass = classNames("components-wrapper", {
+    "components-wrapper--active": isEdited,
+  });
 
-  return Component
-    ? (
-      <div
-        className={wrapperClass}
-      >
-        <Component layout={layout} {...props} />
-        <span className="edit" onClick={onComponentEdit}>click to edit</span>
-      </div>
-    )
-    : null;
+  return Component ? (
+    <div className={wrapperClass}>
+      <Component layout={layout} {...props} />
+      <span className="edit" onClick={onComponentEdit}>
+        Edit
+      </span>
+    </div>
+  ) : null;
 };
 
 ComponentsWrapper.propTypes = {
