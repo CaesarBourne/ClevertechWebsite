@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-  currentlyEdited: null,
+  currentlyEdited: { id: 0, value: null },
   items: [],
 };
 

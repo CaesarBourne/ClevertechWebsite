@@ -6,4 +6,5 @@ const getStore = () =>
       components: componentsReducer,
     },
   });
+// export type  RootState = ReturnType<typeof getStore.getState>
 export default getStore;
