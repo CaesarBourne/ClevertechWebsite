@@ -16,17 +16,17 @@ export const componentsSlice = createSlice({
     },
     updateComponent: (state, action) => {
       const componentToUpdate = state.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item.currentlyEdited.id === action.payload.id
       );
 
       if (componentToUpdate) {
         Object.assign(componentToUpdate, action.payload);
-        state.currentlyEdited = null;
+        state.currentlyEdited.id = null;
       }
     },
     removeComponent: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload.id);
-      state.currentlyEdited = null;
+      state.currentlyEdited.id = null;
     },
     setEditedComponent: (state, action) => {
       if (state && state.currentlyEdited)
